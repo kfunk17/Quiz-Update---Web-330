@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="Kurt Leadley, Karie Funk, Wendy Portillo">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JS Quiz</title>
+        <!-- JavaScript Libraries -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+        <script src="js/knockout-3.5.0.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+        <!-- Stylesheet - Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+            integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <!-- bootstrap overrides -->
+        <link rel="stylesheet" href="styles/style.css" />
+    </head>
+    <body>
+        <header id='top'>
+            <h1>Test Your JS Knowledge</h1>
+        </header>
+        <main>
+            <p id="intro"><i>JavaScript web quiz created by the HTML Assassins</i></p>
+            <!-- https://knockoutjs.com/documentation/with-binding.html -->
+           
+
+            <div class="quiz">
+           
+           <div class="question" id="questionBox">
+           	
+           </div>
+           
+           <div class="question-buttons">
+           	  <ul id="ul">
+           	  	  <li id="op1" onclick="button(this)"></li>
+           	  	  <li id="op2" onclick="button(this)"></li>
+           	  	  <li id="op3" onclick="button(this)"></li>
+                  <li id="op4" onclick="button(this)"></li>
+          
+           	  </ul>
+           </div>
+           <div class="score">
+           	   <div class="next">
+           	   	  <button type="button" onclick="next()" id="button">Next</button>
+           	   </div>
+           	   <div class="score-card">
+           	   	  Score : <span id="scoreCard">0</span>
+           	   </div>
+           </div>
+
+	</div>
+<script src="js/script.js"></script>
+
+            
+
+           
+            <section class='buttons'>
+               
+                   
+                <button id='restart' type="button" data-bind="click: restart">Restart</button>
+                <!-- https://knockoutjs.com/documentation/enable-binding.html -->
+                <button id='submit' type="button" data-bind="click: submit, enabled: canSubmit">Submit</button>
+            </section>
+       
+           
+  
+        </main>
+        <footer>
+            <h3>&copy;2019 Web-330-Group-C: Kurt Leadley, Wendy Portillo, Karie Funk.</h3>
+            <a href='#top'>Back to top</a>
+        </footer>
+     
+    </body>
+</html>

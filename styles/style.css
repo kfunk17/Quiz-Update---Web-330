@@ -1,0 +1,353 @@
+/*
+#fff
+#000
+#214154
+#17b7e8
+#3A4750
+#7e8786
+#a1c140
+#eb922b
+*/
+
+
+
+.quiz .question{
+    background-color: #3a4750;
+    color:#FFF;
+    border:1px solid #7e8786;
+    border-radius: 4px;
+	padding: 12px;
+	font-size: 1.3em;
+	width: 100%;
+    text-align: center;
+    
+}
+.quiz .question-buttons{
+	float: left;
+	width: 100%;
+}
+
+.quiz .question-buttons ul{
+	list-style: none;
+	padding: 0px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.quiz .question-buttons ul li{
+	display: inline-block;
+    background-color:white;
+    color: black;
+	width: 49.10%;
+	padding: 15px;
+    border-radius: 4px;
+	margin-top: 25px;
+	font-size: 15px;
+	cursor: pointer;
+	outline: none;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    
+}
+
+.quiz .question-buttons ul li:hover{
+    background-color: #17b7e8;
+    color:#fff;
+    border:1px solid #fff;
+    border-radius: 4px;
+}
+.quiz .question-buttons ul li:active{
+	box-shadow: 0px 3px 0px transparent;	
+
+}
+.quiz .question-buttons ul li.correct{
+	background-color: #0fd40f;
+
+}
+
+.quiz .question-buttons ul li.wrong{
+	background-color: #e91e1e;
+
+}
+
+.quiz .score{
+	float: left;
+	width: 100%;
+	padding:25px 0px;
+}
+
+.quiz .score .next{
+	width: 40%;
+	float: left;
+}
+.quiz .score .next button{
+    background-color: #3a4750;
+    color:#FFF;
+    border:1px solid #7e8786;
+    border-radius: 4px;
+    width:100px;
+    height: auto;
+}
+
+.quiz .score .next button:hover{
+    background-color: #17b7e8;
+    color:#fff;
+    border:1px solid #fff;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: #214154;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Varela Round', sans-serif;
+    margin:0;
+    padding:0;
+}
+h2,h3 {
+    color: #fff;
+    padding:15px 0;
+    margin:0;
+}
+h1{
+  color: #000;
+  padding: 15px 0;
+  margin: 0;
+}
+.intro{
+    color: #fff;
+}
+.white {
+    color:#fff;
+}
+.buttons {
+    text-align:center;
+
+}
+.buttons button {
+    background-color: #3a4750;
+    color:#FFF;
+    border:1px solid #7e8786;
+    border-radius: 4px;
+}
+.buttons button:hover {
+    background-color: #17b7e8;
+    color:#fff;
+    border:1px solid #fff;
+    border-radius: 4px;
+}
+header, footer {
+    margin:0;
+    padding:0;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+}
+footer h3{
+    color: #000;
+}
+main {
+    margin:30px 10%;
+}
+section {
+    margin:30px 0;
+}
+footer h4 {
+    margin:auto 0;
+    padding:15px 0;
+}
+/*
+This is the essential, go to resource for CSS Grid.
+https://css-tricks.com/snippets/css/complete-guide-grid/
+I'm using 'grid-template-areas' to define our grid. There are other ways to do this.
+In the example below, I create a 4 row, 2 column grid. (line 50-54)
+Row 1: Question spans 2 columns
+Row 2: Answer 1, Answer 2
+Row 3: Answer 3, Answer 4
+Row 4: correct-incorrect spans 2 columns
+"grid-template-columns" is a way to define how many columns you want.
+I chose 2 columns with each at a size of 1fr (they will both take 50% space).
+Try changing the fr's to 2fr 1fr or 1fr 2fr to see how they work
+The "grid-template-areas" are populated by the grids children
+elements below by "grid-area".
+In our case, .question-container is the parent that creates the grid,
+and first level children elements are the grid areas. See lines 30-37 in the js file 
+-kl*/
+.question-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+    grid-template-areas:  
+    "question question"
+    "a1 a2"
+    "a3 a4"
+    "correct-incorrect correct-incorrect";
+}
+.question-container .question {
+    grid-area:question;
+}
+.question-container div:nth-child(2) {
+    grid-area: a1;
+}
+.question-container div:nth-child(3) {
+    grid-area: a2;
+}
+.question-container div:nth-child(4) {
+    grid-area: a3;
+}
+.question-container div:nth-child(5) {
+    grid-area: a4;
+}
+.question-container .question-result {
+    grid-area: correct-incorrect;
+}
+
+.question-container .answer {
+    text-align: center;
+    background-color:#fff;
+    color: #000;
+    border: 1px solid #000;
+    width:100%;
+    border-radius: 4px;
+}
+
+.question-container .question {
+    text-align: center;
+    background-color:#3A4750;
+    border: 1px solid #7e8786;
+    width:100%;
+    border-radius: 4px;
+}
+
+.question-container .answer:hover {
+    color:#fff;
+    background-color: #17b7e8;
+    border: 1px solid #fff;
+}
+/*
+.question-result {
+    display:none;
+}
+*/
+#results-container {
+    display:none;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+    grid-template-areas:  
+    "h3 h3 ratio . ."
+    "p p percent . .";
+    background-color: #fff;
+    color: #000;
+}
+#results-container h3 {
+    grid-area: h3;
+    align-self: center;
+    color: #000;
+   
+}
+#results-container p {
+    grid-area: p;
+    align-self: center;
+    color: #000;
+   
+}
+#results-container #results-score {
+    grid-area: ratio;
+    justify-self: center;
+    align-self: center;
+    color: #000;
+
+}
+#results-container #results-score-percentage {
+    grid-area: percent;
+    justify-self: center;
+    align-self: center;
+    color: #000;
+}
+.q-tabs-container {
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+}
+.q-tab {
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #000;
+}
+.q-tab:hover {
+    background-color: #17b7e8;
+    color:#fff;
+    border: 1px solid #fff;
+}
+.question h2, .q-tab p, .answer p {
+    margin:auto 0;
+    padding:10px 0;
+}
+
+
+/*
+#submit {
+    display:none;
+}
+*/
+@media (max-width: 767px) {
+    main {
+        margin:30px 2%;
+    }
+    h1,h2,h3,h4,p {
+        padding-left:10px;
+        padding-right:10px;
+    }
+    .question-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:  
+        "question"
+        "a1"
+        "a2"
+        "a3"
+        "a4"
+        "correct-incorrect";
+    }
+    .question-container .answer {
+        justify-self: center;
+        width:80%;
+    }
+    .results-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "h3"
+        "p"
+        "ratio"
+        "percent";    
+        color: #000;
+    }
+    .q-tabs-container {
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 15px;
+        row-gap: 15px;
+    }
+}
